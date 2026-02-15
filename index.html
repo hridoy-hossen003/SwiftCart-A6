@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftCart</title>
+    <link rel="shortcut icon" href="./Assets/favcion2-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/style.css">
+    <!-- Montserrat font links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- TailwindCSS and daisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- fontawsome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <!-- Navbar -->
+        <div class="navbar md:px-32 bg-base-100 shadow-sm">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="-1"
+                        class="menu menu-sm dropdown-content  z-1 mt-3 p-2 ">
+                    <li><a href="/index.html" class="font-bold text-gray-600">Home</a></li>
+                    <li><a href="/productss.html" class="font-bold text-gray-600">Product</a></li>
+                    <li><a href="/in" class="font-bold text-gray-600">About</a></li>
+                    <li><a href="" class="font-bold text-gray-600">Contact</a></li>
+                    </ul>
+                </div>
+                <a class="btn btn-ghost text-xl text-primary font-bold text-xl">SwiftCart</a>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1">
+                    <li><a href="/index.html" class="font-bold text-gray-600">Home</a></li>
+                    <li><a href="/productss.html" class="font-bold text-gray-600">Product</a></li>
+                    <li><a href="/in" class="font-bold text-gray-600">About</a></li>
+                    <li><a href="" class="font-bold text-gray-600">Contact</a></li>
+                </ul>
+            </div>
+            <div class="navbar-end">
+                <a class="btn btn-ghost "><i class="text-xl fa-solid fa-cart-shopping"></i></a>
+            </div>
+        </div>
+        <!-- hero section  -->
+        <div class="hero min-h-screen"
+            style="background-image: url('./Assets/banner-image.png');">
+            <div class="hero-overlay"></div>
+            <div class=" text-neutral-content md:w-10/12 px-6 mx-auto text-white  text-star">
+                <div class="">
+                    <h1 class="mb-5 text-5xl font-bold ">Best Collection For You</h1>
+                    <p class="mb-5">
+                        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi <br> exercitationem
+                        quasi. In deleniti eaque aut repudiandae et a id nisi.
+                    </p>
+                    <button class="btn btn-primary">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    
+    
+    
+    <script src="./script/script.js"></script>
+</body>
+
+</html>
+<!-- <section class="bg-[url('./Assets/banner-image.png')] bg-cover bg-no-repeat bg-center h-96 relative">
+   <div class="absolute inset-0 bg-black/60"></div>
+   <div class="relative z-10 ">
+       <h1 class="text-2xl text-white font-bold">hello</h1>
+   </div>
+</section> -->
