@@ -16,7 +16,7 @@ const displayTrendingProducts = (products) => {
        card.innerHTML = `
        <div class="card bg-base-100 shadow-lg object-cover h-full ">
           <figure class='bg-gray-200 box-border p-8'>
-              <img src="${image}" class="md:h-[400px] md:max-w-[350px] bg-gray-200" alt="Shoes" />
+              <img src="${image}" class="md:h-[400px] h-[300px] w-[250px] md:max-w-[350px] bg-gray-200" alt="Shoes" />
           </figure>
           <div class="card-body">
               <div class="flex  justify-between items-center">
