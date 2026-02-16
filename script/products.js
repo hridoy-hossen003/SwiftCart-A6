@@ -29,7 +29,7 @@ const displayProducts = (datas) => {
     const { title , price , description , category , rating , image} = data;
     const card = document.createElement('div');
     card.innerHTML = `
-     <div class="card bg-base-100 shadow-sm object-cover h-full ">
+     <div class="card bg-base-100 shadow-lg object-cover h-full ">
         <figure class='bg-gray-200 box-border p-8'>
             <img src="${data.image}" class="md:h-[400px] md:max-w-[350px] bg-gray-200" alt="Shoes" />
         </figure>
@@ -46,7 +46,7 @@ const displayProducts = (datas) => {
                 
             </div>
             <div class="card-actions justify-between ">
-                <div class="btn btn-outline"> <i class="fa-regular fa-eye"></i> Detail</div>
+                <div class="btn btn-outline px-6"> <i class="fa-regular fa-eye"></i> Detail</div>
                 <div class="btn btn-primary"><i class="fa-solid fa-cart-plus "></i> Add</div>
             </div>
         </div>

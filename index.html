@@ -24,7 +24,7 @@
 <body>
     <header>
         <!-- Navbar -->
-        <div class="navbar md:px-32 bg-base-100 shadow-sm">
+        <div class="navbar md:px-32 bg-base-100 shadow-sm fixed z-10">
             <div class="navbar-start">
                 <a class="btn btn-ghost text-primary font-bold text-2xl">SwiftCart</a>
             </div>
@@ -54,7 +54,7 @@
             </div>
         </div>
         <!-- hero section  -->
-        <div class="hero min-h-screen"
+        <div class="hero min-h-screen "
             style="background-image: url('./Assets/banner-image.png');">
             <div class="hero-overlay"></div>
             <div class=" text-neutral-content md:w-10/12 px-6 mx-auto text-white  text-star">
@@ -72,7 +72,7 @@
     <main>
         <section class="bg-gray-50 py-30">
             <div class="py-20 text-center space-y-2">
-                <h1 class="capitalize text-3xl font-bold">Why choose us</h1>
+                <h1 class="capitalize text-4xl font-bold">Why choose us</h1>
                 <p class="font-semibold text-gray-800">We provide the best shopping experience with top-notch services.</p>
             </div>
             <div id='card-contaner' class="w-10/12 mx-auto grid md:grid-cols-4 md:gap-4 gap-16">
@@ -100,7 +100,7 @@
                     </div>
                 </div>
 
-                <div class="shadow-lg rounded-md p-3  bg-white">
+                <div class="shadow-lg rounded-md p-3 min-h-50  bg-white">
                     <div class="p-3 mt-[-40px] rounded-lg border-5  border-white shadow-md bg-sky-100 w-fit"><i class="fa-solid fa-arrow-rotate-left text-xl"></i></div>
                     <div class="pt-6">
                         <h3 class="font-bold text-xl mb-4">Easy Returns</h3>
@@ -109,6 +109,15 @@
                 </div>
             </div>
         </section>
+
+        <!-- Tranding Products Sections -->
+         <section class="py-40 w-10/12 mx-auto">
+            <div class="py-5 text-left space-y-2">
+                <h1 class="capitalize text-4xl font-bold">Trending Now</h1>
+                <p class="font-semibold text-lg">Our top selling products.</p>
+            </div>
+            <div id="trending-container" class="grid grid-cols-3 gap-6"></div>
+         </section>
     </main>
     
     
@@ -117,9 +126,3 @@
 </body>
 
 </html>
-<!-- <section class="bg-[url('./Assets/banner-image.png')] bg-cover bg-no-repeat bg-center h-96 relative">
-   <div class="absolute inset-0 bg-black/60"></div>
-   <div class="relative z-10 ">
-       <h1 class="text-2xl text-white font-bold">hello</h1>
-   </div>
-</section> -->
