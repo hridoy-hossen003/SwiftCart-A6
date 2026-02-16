@@ -26,26 +26,10 @@
         <!-- Navbar -->
         <div class="navbar md:px-32 bg-base-100 shadow-sm">
             <div class="navbar-start">
-                <div class="dropdown">
-                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h8m-8 6h16" />
-                        </svg>
-                    </div>
-                    <ul tabindex="-1"
-                        class="menu menu-sm dropdown-content  z-1 mt-3 p-2 ">
-                    <li><a href="/index.html" class="font-bold text-gray-600">Home</a></li>
-                    <li><a href="/productss.html" class="font-bold text-gray-600">Product</a></li>
-                    <li><a href="/in" class="font-bold text-gray-600">About</a></li>
-                    <li><a href="" class="font-bold text-gray-600">Contact</a></li>
-                    </ul>
-                </div>
-                <a class="btn btn-ghost text-xl text-primary font-bold text-xl">SwiftCart</a>
+                <a class="btn btn-ghost text-primary font-bold text-2xl">SwiftCart</a>
             </div>
             <div class="navbar-center hidden lg:flex">
-                <ul class="menu menu-horizontal px-1">
+                <ul class="menu menu-horizontal text-xl px-1">
                     <li><a href="/index.html" class="font-bold text-gray-600">Home</a></li>
                     <li><a href="/productss.html" class="font-bold text-gray-600">Product</a></li>
                     <li><a href="/in" class="font-bold text-gray-600">About</a></li>
@@ -53,7 +37,20 @@
                 </ul>
             </div>
             <div class="navbar-end">
-                <a class="btn btn-ghost "><i class="text-xl fa-solid fa-cart-shopping"></i></a>
+                <a class="btn btn-ghost "><i class="text-2xl fa-solid fa-cart-shopping"></i></a>
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="-1" class="menu menu-sm dropdown-content bg-white z-20 mt-3 p-4 rounded-md ">
+                        <li><a href="/index.html" class="font-bold text-gray-600">Home</a></li>
+                        <li><a href="/productss.html" class="font-bold text-gray-600">Product</a></li>
+                        <li><a href="/in" class="font-bold text-gray-600">About</a></li>
+                        <li><a href="" class="font-bold text-gray-600">Contact</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <!-- hero section  -->
@@ -72,11 +69,51 @@
             </div>
         </div>
     </header>
+    <main>
+        <section class="bg-gray-50 py-30">
+            <div class="py-20 text-center space-y-2">
+                <h1 class="capitalize text-3xl font-bold">Why choose us</h1>
+                <p class="font-semibold text-gray-800">We provide the best shopping experience with top-notch services.</p>
+            </div>
+            <div id='card-contaner' class="w-10/12 mx-auto grid md:grid-cols-4 md:gap-4 gap-16">
+                <div class="shadow-lg rounded-md p-3  bg-white">
+                    <div class="p-3 mt-[-40px] rounded-lg  border-white shadow-md border-5 bg-sky-100 w-fit"><i class=" text-xl fa-solid fa-truck-moving"></i></div>
+                    <div class="pt-6">
+                        <h3 class="font-bold text-xl mb-4">Fast Delivery</h3>
+                        <p class="text-gray-500 font-semibold">Get your order delivered to your doorstep quickly efficiently.</p>
+                    </div>
+                </div>
+
+                <div class="shadow-lg rounded-md p-3  bg-white">
+                    <div class="p-3 mt-[-40px] rounded-lg border-5  border-white shadow-md bg-sky-100 w-fit"><i class="fa-solid fa-headphones text-xl"></i></div>
+                    <div class="pt-6">
+                        <h3 class="font-bold text-xl mb-4">24/7 Support</h3>
+                        <p class="text-gray-500 font-semibold">Our support team is available around the clock to assist you.</p>
+                    </div>
+                </div>
+
+                <div class="shadow-lg rounded-md p-3  bg-white">
+                    <div class="p-3 mt-[-40px] rounded-lg border-5 border-white shadow-md bg-sky-100 w-fit"><i class="fa-solid fa-shield-halved text-xl"></i></div>
+                    <div class="pt-6">
+                        <h3 class="font-bold text-xl mb-4">Secure Payment</h3>
+                        <p class="text-gray-500 font-semibold">Experience safe and secure transaction with our encrypted payment systems.</p>
+                    </div>
+                </div>
+
+                <div class="shadow-lg rounded-md p-3  bg-white">
+                    <div class="p-3 mt-[-40px] rounded-lg border-5  border-white shadow-md bg-sky-100 w-fit"><i class="fa-solid fa-arrow-rotate-left text-xl"></i></div>
+                    <div class="pt-6">
+                        <h3 class="font-bold text-xl mb-4">Easy Returns</h3>
+                        <p class="text-gray-500 font-semibold">Not satisfied? Return your Product easily within 30 days.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
     
     
     
-    
-    <script src="./script/script.js"></script>
+    <script src="./script/home.js"></script>
 </body>
 
 </html>
