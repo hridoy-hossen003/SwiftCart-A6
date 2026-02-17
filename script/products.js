@@ -5,53 +5,71 @@ const loadCategorys = async () => {
   displayCategories(data);
 };
 
+const manageLoader = (status) => {
+    if(status === true){
+        document.getElementById("loading-container").classList.remove('hidden');
+        document
+          .getElementById("all-product-container")
+          .classList.add("hidden");
+    }else{
+        document.getElementById("all-product-container")
+        .classList.remove("hidden");
+
+        document.getElementById("loading-container").classList.add("hidden");
+        
+
+    }
+}
+
 const loadAllProduct = async () => {
+    manageLoader(true)
   const res = await fetch("https://fakestoreapi.com/products");
   const data = await res.json();
   displayProducts(data);
-//   const allBtn = document.getElementById("all-btns");
-//   allBtn.classList.remove('active')
-//   addActive()
+  //   const allBtn = document.getElementById("all-btns");
+  //   allBtn.classList.remove('active')
+  //   addActive()
 };
 
 const loadDetails = async (id) => {
   const res = await fetch(`https://fakestoreapi.com/products/${id}`);
   const data = await res.json();
   displayDetails(data);
-  
 };
 
 const removeActive = () => {
-    const activeBtns = document.querySelectorAll(".categories-btn");
-    const remove  = activeBtns.forEach(btn => btn.classList.remove('active'))
-}
+  const activeBtns = document.querySelectorAll(".categories-btn");
+  const remove = activeBtns.forEach((btn) => btn.classList.remove("active"));
+};
 
-const loadProductByCat = async (category , i) => {
-    const res = await fetch(
-      `https://fakestoreapi.com/products/category/${category}`,
-    );
-    const data = await res.json();
-    removeActive()
-    const clickBtn = document.getElementById(`category-${i}`);
-    clickBtn.classList.add('active')
-    displayProductsByCategory(data);
-}
+const loadProductByCat = async (category, i) => {
+     manageLoader(true);
+  const res = await fetch(
+    `https://fakestoreapi.com/products/category/${category}`,
+  );
+  const data = await res.json();
+  removeActive();
+  const clickBtn = document.getElementById(`category-${i}`);
+  clickBtn.classList.add("active");
+  displayProductsByCategory(data);
+ 
+};
 
 const addActive = () => {
-    const clickBtn = document.getElementById(`all-btns`);
-    clickBtn.classList.add("active");
-}
+  const clickBtn = document.getElementById(`all-btns`);
+  clickBtn.classList.add("active");
+};
 
 const displayProductsByCategory = (datas) => {
-    const container = document.getElementById("all-product-container");
-    container.innerHTML = null;
-    const products = datas.forEach((data) => {
-      const { title, price, id, description, category, rating, image } = data;
-      const card = document.createElement("div");
-      card.innerHTML = `
-     <div class="card bg-base-100 shadow-lg f-full">
+  const container = document.getElementById("all-product-container");
+  container.innerHTML = null;
+  const products = datas.forEach((data) => {
+    const { title, price, id, description, category, rating, image } = data;
+    const card = document.createElement("div");
+    card.innerHTML = `
+     <div class="card bg-base-100 shadow-lg f-100">
         <figure class='bg-gray-200 box-border p-8'>
-            <img src="${data.image}" class="md:h-[400px] md:max-w-[350px] object-contain p-10 bg-gray-200" alt="Shoes" />
+            <img src="${data.image}" class="md:h-[350px] md:max-w-[300px]  p-10 bg-gray-200" alt="Shoes" />
         </figure>
         <div class="card-body flex flex-col">
             <div class="flex  justify-between items-center">
@@ -73,9 +91,10 @@ const displayProductsByCategory = (datas) => {
     </div>
     `;
 
-      container.append(card);
-    });
-}
+    container.append(card);
+  });
+  manageLoader(false)
+};
 
 const displayDetails = (details) => {
   const container = document.getElementById("modal-container");
@@ -119,8 +138,8 @@ const displayProducts = (datas) => {
     const card = document.createElement("div");
     card.innerHTML = `
      <div class="card bg-base-100 shadow-lg h-full ">
-        <figure class='bg-gray-200 box-border p-8'>
-            <img src="${data.image}" class="md:h-[400px] md:max-w-[350px] object-contain p-10 bg-gray-200" alt="Shoes" />
+        <figure class='bg-gray-200 box-border p-4'>
+            <img src="${data.image}" class="md:h-[350px] md:max-w-[250px] object-contain p-10 bg-gray-200" alt="Shoes" />
         </figure>
         <div class="card-body flex flex-col">
             <div class="flex  justify-between items-center">
@@ -144,6 +163,7 @@ const displayProducts = (datas) => {
 
     container.append(card);
   });
+  manageLoader(false)
 };
 
 // const categoriesButtons = document.querySelectorAll(".categories-btn");
@@ -157,13 +177,14 @@ const displayCategories = (categories) => {
  <button id="all-btns" onclick="loadAllProduct()" class="btn btn-outline rounded-2xl btn-primary">All</button>
  `;
   container.append(allBtnDiv);
-  const categoriesBtn = categories.forEach((cat , i) => {
+  const categoriesBtn = categories.forEach((cat, i) => {
     const btnDiv = document.createElement("div");
     btnDiv.innerHTML = `
     <button id="category-${i}" onclick="loadProductByCat(&quot;${cat}&quot; , ${i})" class="btn btn-outline rounded-2xl btn-primary categories-btn category-btn">${cat}</button>
     `;
     container.append(btnDiv);
   });
+ 
 };
 
 loadAllProduct();
