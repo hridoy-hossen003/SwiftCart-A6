@@ -13,3 +13,13 @@ In the js `==` is used for compering only values. on the other hend `===` check 
 #Question-4
 ## 4) What is the significance of async/await in fetching API data?
 To fetch data from API async/await play more significant role then `.then`. Bz it's make code asyncronus and let javaScript to read code syncronusly. moreover it's make code more professional , clean and more readable.
+
+#Question-5
+## 5) Explain the concept of Scope in JavaScript (Global, Function, Block).
+Scope is stands for where a variable can be accessed in js. there are main 3 scope in js ( `blocl` , `function` , `Global`). 
+1. Block Scope
+   when a variable decleard in `{}` like (`for` , `while`). in this case that variable only accessable in the block. `const` `let` grand permmision to declear variable. `var` has no block scope
+2. Function Scope
+   In this case variable is decleared in the function body. it can't be access outside of function. `const` `var` `let` allow the developer to declear a variable in function scope.
+3. Global Scope
+   Last but not least is Global Scope. there are variable is decleard globally. this variable can be accessed from the anywhere of program. Sometimes it's create problems.
