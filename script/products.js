@@ -2,38 +2,58 @@ const loadCategorys = async () => {
   const url = "https://fakestoreapi.com/products/categories";
   const res = await fetch(url);
   const data = await res.json();
-  displayCategories(data)
-}; 
+  displayCategories(data);
+};
 
-const loadAllProduct = async () =>{
+const loadAllProduct = async () => {
   const res = await fetch("https://fakestoreapi.com/products");
-  const data= await res.json();
+  const data = await res.json();
   displayProducts(data);
+//   const allBtn = document.getElementById("all-btns");
+//   allBtn.classList.remove('active')
+//   addActive()
+};
+
+const loadDetails = async (id) => {
+  const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+  const data = await res.json();
+  displayDetails(data);
+  
+};
+
+const removeActive = () => {
+    const activeBtns = document.querySelectorAll(".categories-btn");
+    const remove  = activeBtns.forEach(btn => btn.classList.remove('active'))
 }
 
+const loadProductByCat = async (category , i) => {
+    const res = await fetch(
+      `https://fakestoreapi.com/products/category/${category}`,
+    );
+    const data = await res.json();
+    removeActive()
+    const clickBtn = document.getElementById(`category-${i}`);
+    clickBtn.classList.add('active')
+    displayProductsByCategory(data);
+}
 
-// "id": 1,
-// "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-// "price": 109.95,
-// "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-// "category": "men's clothing",
-// "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
-// "rating": {
-// "rate": 3.9,
-// "count": 120
-// }
-const displayProducts = (datas) => {
-  const container = document.getElementById('all-product-container');
-  container.innerHTML = null;
-  const products = datas.forEach(data => {
-    const { title , price , description , category , rating , image} = data;
-    const card = document.createElement('div');
-    card.innerHTML = `
-     <div class="card bg-base-100 shadow-lg object-cover h-full ">
+const addActive = () => {
+    const clickBtn = document.getElementById(`all-btns`);
+    clickBtn.classList.add("active");
+}
+
+const displayProductsByCategory = (datas) => {
+    const container = document.getElementById("all-product-container");
+    container.innerHTML = null;
+    const products = datas.forEach((data) => {
+      const { title, price, id, description, category, rating, image } = data;
+      const card = document.createElement("div");
+      card.innerHTML = `
+     <div class="card bg-base-100 shadow-lg f-full">
         <figure class='bg-gray-200 box-border p-8'>
-            <img src="${data.image}" class="md:h-[400px] md:max-w-[350px] bg-gray-200" alt="Shoes" />
+            <img src="${data.image}" class="md:h-[400px] md:max-w-[350px] object-contain p-10 bg-gray-200" alt="Shoes" />
         </figure>
-        <div class="card-body">
+        <div class="card-body flex flex-col">
             <div class="flex  justify-between items-center">
                 <p class="p-1 text-[#4F39F6] px-2 font-semibold rounded-xl bg-[#E0E7FF] max-w-fit ">${category}</p>
                 <p class="text-end max-w-fit font-semibold text-gray-700"><i class="fa-solid text-yellow-400 fa-star"></i> ${rating.rate} (${rating.count})</p>
@@ -45,37 +65,106 @@ const displayProducts = (datas) => {
                 <h2 class=" text-xl font-bold "> $ ${price}</h2>
                 
             </div>
-            <div class="card-actions justify-between ">
-                <div class="btn btn-outline px-6"> <i class="fa-regular fa-eye"></i> Detail</div>
+            <div class="card-actions justify-between flex-1 items-end">
+                <div onclick='loadDetails(${id})' class="btn btn-outline px-6"> <i class="fa-regular fa-eye"></i> Detail</div>
                 <div class="btn btn-primary"><i class="fa-solid fa-cart-plus "></i> Add</div>
             </div>
         </div>
     </div>
     `;
 
-    container.append(card)
-  })
+      container.append(card);
+    });
 }
 
-const categoriesButtons = document.querySelectorAll(".categories-btn");
-console.log(categoriesButtons);
+const displayDetails = (details) => {
+  const container = document.getElementById("modal-container");
+  const { title, price, description, image, rating } = details;
+  container.innerHTML = `
+       <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box md:w-11/12 md:max-w-2xl">
+            <div class="card bg-base-100 shadow-sm">
+                <div class="card-body">
+                    <span class="badge badge-xs badge-warning">${rating.rate} (${rating.count})</span>
+                    <div class="">
+                        <h2 class="text-3xl font-bold">${title}</h2>
+                        <span class="text-xl">$ ${price}</span>
+                    </div>
+                    <div class="">
+                        <p>${description}</p>
+                    </div>
+                </div>
+                <div class="modal-action p-4 flex justify-between items-center">
+                    <div>
+                        <button class="btn btn-primary btn-outline"><i class="fa-solid fa-cart-plus"></i> Add to
+                            cart</button>
+                    </div>
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn btn-warning">Close</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </dialog>
+    `;
+  document.getElementById("my_modal_5").showModal();
+};
+
+const displayProducts = (datas) => {
+  const container = document.getElementById("all-product-container");
+  container.innerHTML = null;
+  const products = datas.forEach((data) => {
+    const { title, price, id, description, category, rating, image } = data;
+    const card = document.createElement("div");
+    card.innerHTML = `
+     <div class="card bg-base-100 shadow-lg h-full ">
+        <figure class='bg-gray-200 box-border p-8'>
+            <img src="${data.image}" class="md:h-[400px] md:max-w-[350px] object-contain p-10 bg-gray-200" alt="Shoes" />
+        </figure>
+        <div class="card-body flex flex-col">
+            <div class="flex  justify-between items-center">
+                <p class="p-1 text-[#4F39F6] px-2 font-semibold rounded-xl bg-[#E0E7FF] max-w-fit ">${category}</p>
+                <p class="text-end max-w-fit font-semibold text-gray-700"><i class="fa-solid text-yellow-400 fa-star"></i> ${rating.rate} (${rating.count})</p>
+            </div>
+            <div class="space-y-2">
+                <h2 class=" text-xl font-bold ">
+                    ${title}
+                </h2>
+                <h2 class=" text-xl font-bold "> $ ${price}</h2>
+                
+            </div>
+            <div class="card-actions justify-between flex-1 items-end">
+                <div onclick='loadDetails(${id})' class="btn btn-outline px-6"> <i class="fa-regular fa-eye"></i> Detail</div>
+                <div class="btn btn-primary"><i class="fa-solid fa-cart-plus "></i> Add</div>
+            </div>
+        </div>
+    </div>
+    `;
+
+    container.append(card);
+  });
+};
+
+// const categoriesButtons = document.querySelectorAll(".categories-btn");
+// console.log(categoriesButtons);
 
 const displayCategories = (categories) => {
   const container = document.getElementById("category-container");
- container.innerHTML = null;
- const allBtnDiv = document.createElement('div');
- allBtnDiv.innerHTML = `
- <button onclick="loadAllProduct()" class="btn btn-outline rounded-2xl btn-primary">All</button>
+  container.innerHTML = null;
+  const allBtnDiv = document.createElement("div");
+  allBtnDiv.innerHTML = `
+ <button id="all-btns" onclick="loadAllProduct()" class="btn btn-outline rounded-2xl btn-primary">All</button>
  `;
- container.append(allBtnDiv)
- const categoriesBtn = categories.forEach(cat => {
-    const btnDiv = document.createElement('div');
+  container.append(allBtnDiv);
+  const categoriesBtn = categories.forEach((cat , i) => {
+    const btnDiv = document.createElement("div");
     btnDiv.innerHTML = `
-    <button class="btn btn-outline rounded-2xl btn-primary categories-btn">${cat}</button>
+    <button id="category-${i}" onclick="loadProductByCat(&quot;${cat}&quot; , ${i})" class="btn btn-outline rounded-2xl btn-primary categories-btn category-btn">${cat}</button>
     `;
-    container.append(btnDiv)
+    container.append(btnDiv);
   });
-}
+};
 
 loadAllProduct();
-loadCategorys()
+loadCategorys();
