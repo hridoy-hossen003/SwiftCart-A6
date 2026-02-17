@@ -8,4 +8,4 @@ In javaScript map() function is an array method whict is return a new array with
 
 #Question-3
 ## 3) What is the difference between == and ===?
-In the js == is used for compering only values. on the other hend === check both value and dataTypes
+In the js `==` is used for compering only values. on the other hend `===` check both value and dataTypes
