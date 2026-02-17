@@ -5,3 +5,7 @@ null is developers defined object which is reffers that developer is intentional
 #Question-2
 ## 2) What is the use of the map() function in JavaScript? How is it different from forEach()?
 In javaScript map() function is an array method whict is return a new array with modification that you want. it's not changing the origenal array. it's create a new one and return it as final output. and the difference between map() and forEach() is map() returns a new array but the forEach is not.
+
+#Question-3
+## 3) What is the difference between == and ===?
+In the js == is used for compering only values. on the other hend === check both value and dataTypes
