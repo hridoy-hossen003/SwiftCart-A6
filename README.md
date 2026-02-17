@@ -9,3 +9,7 @@ In javaScript map() function is an array method whict is return a new array with
 #Question-3
 ## 3) What is the difference between == and ===?
 In the js `==` is used for compering only values. on the other hend `===` check both value and dataTypes
+
+#Question-4
+## 4) What is the significance of async/await in fetching API data?
+To fetch data from API async/await play more significant role then `.then`. Bz it's make code asyncronus and let javaScript to read code syncronusly. moreover it's make code more professional , clean and more readable.
