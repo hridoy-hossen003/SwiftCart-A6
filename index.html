@@ -24,7 +24,7 @@
 <body>
     <header>
         <!-- Navbar -->
-        <div class="navbar md:px-32 bg-base-100 shadow-sm fixed z-10">
+        <div class="navbar md:px-32 bg-base-100 shadow-sm md:fixed z-10">
             <div class="navbar-start">
                 <a class="btn btn-ghost text-primary font-bold text-2xl">SwiftCart</a>
             </div>
@@ -38,13 +38,13 @@
             </div>
             <div class="navbar-end">
                 <a class="btn btn-ghost "><i class="text-2xl fa-solid fa-cart-shopping"></i></a>
-                <div class="dropdown">
+                <div class="dropdown relative">
                     <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
                         </svg>
                     </div>
-                    <ul tabindex="-1" class="menu menu-sm dropdown-content bg-white z-20 mt-3 p-4 rounded-md ">
+                    <ul tabindex="0" class="menu menu-sm absolute top-full w-52 left-0 dropdown-content bg-white z-20 mt-3 p-4 rounded-md ">
                         <li><a href="/index.html" class="font-bold text-gray-600">Home</a></li>
                         <li><a href="/productss.html" class="font-bold text-gray-600">Product</a></li>
                         <li><a href="/in" class="font-bold text-gray-600">About</a></li>
@@ -126,41 +126,86 @@
          <div id="container-storage" class="font-bold text-3xl"></div>
     </main>
     
-    <footer class="bg-[#1E2939]">
-        <footer class="footer sm:footer-horizontal grid grid-cols-4 bg-[#1E2939] w-10/12 mx-auto text-white p-10 py-20">
-        
-            <nav class="text-left">
-                <a class=" text-primary font-bold text-2xl">SwiftCart</a>
-                <p>Your one-stop shop for all your fashion and lifestyle needs. Quality products, fast delivery, and excellent support.</p>
-            </nav>
-            
-           
+<footer class="bg-gray-900 text-gray-400 p-10">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <nav>
-                <h6 class="footer-title">QUICK LINKS</h6>
-                <a class="link link-hover">Home</a>
-                <a class="link link-hover">Products</a>
-                <a class="link link-hover">About
-                </a>
-                <a class="link link-hover">Contact</a>
+                <h6 class="text-indigo-500 text-2xl font-bold mb-4">SwiftCart</h6>
+                <p class="text-sm max-w-xs">
+                    Your one-stop shop for all your fashion and lifestyle needs.
+                    Quality products, fast delivery, and excellent support.
+                </p>
             </nav>
+            <!-- Quick Links  section-->
             <nav>
-                <h6 class="footer-title">Legal</h6>
-                <a class="link link-hover">Terms of use</a>
-                <a class="link link-hover">Privacy policy</a>
-                <a class="link link-hover">Cookie policy</a>
+                <h6 class="text-white font-semibold text-sm uppercase mb-4">
+                    QUICK LINKS
+                </h6>
+                <a class="block hover:underline mb-2 cursor-pointer">Home</a>
+                <a class="block hover:underline mb-2 cursor-pointer">Products</a>
+                <a class="block hover:underline mb-2 cursor-pointer">About</a>
+                <a class="block hover:underline mb-2 cursor-pointer">Contact</a>
             </nav>
+            <!-- Support section-->
+            <nav>
+                <h6 class="text-white font-semibold text-sm uppercase mb-4">
+                    SUPPORT
+                </h6>
+                <a class="block hover:underline mb-2 cursor-pointer">FAQ</a>
+                <a class="block hover:underline mb-2 cursor-pointer">Shipping</a>
+                <a class="block hover:underline mb-2 cursor-pointer">Returns</a>
+                <a class="block hover:underline mb-2 cursor-pointer">Privacy Policy</a>
+            </nav>
+            <!-- Newsletter section-->
             <form>
-                <h6 class="footer-title">Newsletter</h6>
-                <fieldset class="w-80">
-                    <label>Enter your email address</label>
-                    <div class="join">
-                        <input type="text" placeholder="username@site.com" class="input input-bordered join-item" />
-                        <button class="btn btn-primary join-item">Subscribe</button>
-                    </div>
-                </fieldset>
+                <h6 class="text-white font-semibold text-sm uppercase mb-4">
+                    SUBSCRIBE TO OUR NEWSLETTER
+                </h6>
+            <fieldset class="w-full max-w-md mx-auto">
+                <label class="block mb-2">
+                    <span class="text-sm text-gray-400">
+                        The latest news, articles, and resources, sent to your inbox weekly.
+                    </span>
+                </label>
+            
+                <div class="flex w-full overflow-hidden rounded-lg">
+                    <input type="email" placeholder="Enter your email"
+                        class="flex-1 px-2 py-2 border border-gray-600 bg-gray-800 text-white focus:outline-none" />
+                    <button class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium">
+                        Subscribe
+                    </button>
+                </div>
+            </fieldset>
+
             </form>
-        </footer>
-    </footer>
+        </div>
+        <!-- divider and social link section -->
+        <div class="border-t border-gray-700 my-8"></div>
+        <div class="text-center">
+            <section class="flex flex-col sm:flex-row w-full justify-between items-center gap-4">
+                <p class="text-sm">© 2025 SwiftCart, Inc. All rights reserved.</p>
+                <nav class="flex gap-4 text-xl">
+                    <a href="https://web.facebook.com/groups/1641031793407930"
+                        class="hover:text-indigo-400 cursor-pointer">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/" class="hover:text-indigo-400 cursor-pointer">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/ezsnippet/" class="hover:text-indigo-400 cursor-pointer">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/" class="hover:text-indigo-400 cursor-pointer">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/" class="hover:text-indigo-400 cursor-pointer">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </nav>
+            </section>
+        </div>
+    </div>
+</footer>
   
     
     <script src="./script/home.js"></script>
